@@ -4,9 +4,10 @@
 
 <%= link_to "(edit)", edit_post_path %>
 
+<h3>Comments<%= link_to("(+)", new_post_comment_path(@post))%></h3>
+
 <% @comments.each do |comment|  %>
-<li> <%= comment.body%> </li>
+<li> <%= link_to "#{comment.body}", edit_post_comment_path(@post,comment)%> </li>
 <%end%>
 
-<!--
-<h3>Comments<%= link_to("(+)", new_post_comment_path(@post))%></h3> -->
+<%= link_to "Back to all Posts", posts_path %>
