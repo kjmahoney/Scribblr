@@ -3,3 +3,10 @@
 <h3><%=@post.body%></h3>
 
 <%= link_to "(edit)", edit_post_path %>
+
+<% @comments.each do |comment|  %>
+<li> <%= comment.body%> </li>
+<%end%>
+
+<!--
+<h3>Comments<%= link_to("(+)", new_post_comment_path(@post))%></h3> -->
