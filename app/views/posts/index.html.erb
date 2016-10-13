@@ -3,11 +3,13 @@
 
 <%@posts.each do |post|%>
   <li>
-    <%= link_to "#{post.title}", post %>
+    <p><%= link_to "#{post.title}", post %></p>
     <% if post.user%>
-    <p>posted by:<%=post.user.email%></p>
+    <p id = "postBy">posted by:<%=post.user.email%></p>
     <%end%>
   </li>
   <% end %>
 
+  <% if current_user%>
   <%= link_to "(+)", new_post_path %>
+  <%end%>

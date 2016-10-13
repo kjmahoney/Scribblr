@@ -2,12 +2,19 @@
 
 <h3><%=@post.body%></h3>
 
+<% if current_user %>
 <%= link_to "(edit)", edit_post_path %>
+<% end %>
 
-<h3>Comments<%= link_to("(+)", new_post_comment_path(@post))%></h3>
+<h3>Comments
+<% if current_user %>
+<%= link_to("(+)", new_post_comment_path(@post))%></h3>
+<% end %>
 
 <% @comments.each do |comment|  %>
 <li> <%= link_to "#{comment.body}", edit_post_comment_path(@post,comment)%> </li>
 <%end%>
 
+<div id = "navLink">
 <%= link_to "Back to all Posts", posts_path %>
+</div>
