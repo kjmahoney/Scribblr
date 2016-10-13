@@ -4,6 +4,9 @@
 <%@posts.each do |post|%>
   <li>
     <%= link_to "#{post.title}", post %>
+    <% if post.user%>
+    <p>posted by:<%=post.user.email%></p>
+    <%end%>
   </li>
   <% end %>
 
